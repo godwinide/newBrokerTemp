@@ -1,0 +1,52 @@
+    <section class="inner-hero-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="inner-hero-content">
+                    <h2 class="inner-hero__title text-shadow">Sign In</h2>
+                    <ul class="page__breadcums">
+                        <li><a href="/">home</a></li>
+                        <li>Sign In</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="particles"></div>
+</section>
+<section class="pt-150">
+    <div class="signin-wrapper">
+        <div class="outset-circle"></div>
+        <div class="container">
+            <div class="row justify-content-lg-between align-items-center">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="signin-thumb"><img src="assets/templates/neo_dark/images/signin.png" alt="image"></div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="signin-form-area">
+                        <h3 class="title text-capitalize text-shadow mb-30">Sign In</h3>
+                        <form class="signin-form" action="/login" method="post">
+                            <%-include("./partials/messages") %>
+                            <input type="hidden" name="_token" value="aqc5wxb7Ex8tG0Raa1LKAMmpc5Byudf3eKIYYDIk">                            <div class="form-group custom-form-field">
+                                <i class="fa fa-user"></i>
+                                <input type="text" name="username" id="signin_name" placeholder="username" value="" required>
+                            </div>
+
+                            <div class="form-group custom-form-field">
+                                <i class="fa fa-lock"></i>
+                                <input type="password" name="password"  id="signin_pass"  placeholder="password" required autocomplete="current-password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" id="recaptcha" class="btn btn-success btn-small w-100 btn-primary">Sign In</button>
+                            </div>
+                            <!-- <p>Forgot Your Password?
+                                <a href="password/reset.html" class="label-text base--color">Reset Now</a>
+                            </p> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

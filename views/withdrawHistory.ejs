@@ -1,0 +1,123 @@
+
+    <section class="inner-hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="inner-hero-content">
+                        <h2 class="inner-hero__title text-shadow">Withdraw History</h2>
+                        <ul class="page__breadcums">
+                            <li><a href="https://fxcapitalexchange.com">home</a></li>
+                            <li>Withdraw History</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles"></div>
+    </section>
+        <section class="feature-section pt-150 pb-150">
+            <div class="container">
+                <div class="row justify-content-center mt-2">
+    
+                    <div class="col-md-12">
+                        <div class="text-right mb-5">
+                            <a href="/deposit" class="btn btn-primary">Withdraw Now</a>
+                        </div>
+                    </div>
+    
+    
+                    <div class="col-md-12">
+                        <%-include("./partials/messages") %>
+                        <div class="table-responsive--sm neu--table">
+    
+                            <table class="table text-white">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Transaction ID</th>
+                                    <th scope="col">Gateway</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <%history.map(h => {%>
+                                        <tr>
+                                            <td data-label="#Trx"><%=h.shortID%></td>
+                                            <td data-label="Gateway">BITCOIN</td>
+                                            <td data-label="Amount">
+                                                <strong><%=h.amount%> USD</strong>
+                                            </td>
+                                            <td data-label="Status">
+                                                <span class="badge badge-<%=h.status == 'pending' ? 'warning' : 'success'%> "><%=h.status%></span>
+                                            </td>
+        
+                                            <td data-label="Time">
+                                                <i class="fa fa-calendar"></i> <%= new Date(h.date).toLocaleDateString()%>
+                                            </td>
+                                        </tr>
+                                    <%})%>
+    
+                                </tbody>
+                            </table>
+    
+                            
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    
+        
+        <div id="approveModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-content-bg">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group withdraw-list">
+                            <li class="list-group-item dark-bg">Amount : <span class="withdraw-amount "></span></li>
+                            <li class="list-group-item dark-bg">Charge : <span class="withdraw-charge "></span></li>
+                            <li class="list-group-item dark-bg">After Charge : <span class="withdraw-after_charge"></span></li>
+                            <li class="list-group-item dark-bg">Conversion Rate : <span class="withdraw-rate"></span></li>
+                            <li class="list-group-item dark-bg">Payable Amount : <span class="withdraw-payable"></span></li>
+                        </ul>
+                        <ul class="list-group withdraw-list withdraw-detail mt-1">
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger action-btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        
+        <div id="detailModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-content-bg">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+    
+                        <div class="withdraw-detail"></div>
+    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger action-btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    

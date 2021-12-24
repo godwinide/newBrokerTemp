@@ -1,0 +1,61 @@
+
+        <section class="inner-hero-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="inner-hero-content">
+                            <h2 class="inner-hero__title text-shadow">Payment Preview</h2>
+                            <ul class="page__breadcums">
+                                <li><a href="/dashboard">Dashboard</a></li>
+                                <li>Payment Preview</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="particles"></div>
+        </section>
+            <section class="feature-section pt-150 pb-150">
+                <div class="container">
+                    <div class="row  justify-content-center">
+                        <div class="col-md-8">
+        
+                            <div class="card card-bg text-center">
+        
+                                <div class="dashboard__header mb-4">
+                                    <div class="left">
+                                        <h3>Payment Preview</h3>
+                                    </div>
+                                </div>
+        
+                                <div class="card-body">
+        
+                                    <ul class="list-group withdraw-list text-center mb-4">
+        
+                                        <li class="list-group-item">
+                                            <img src="/assets/images/gateway/608ec7f20dd2e1619970034.jpg" class="gateway-preview"/>
+                                        </li>
+        
+                                        <li class="list-group-item">
+                                            Amount:
+                                            <strong><%=amount%> </strong> USD
+                                        </li>
+                                        <li class="list-group-item">
+                                            Charge:
+                                            <strong><%=charge%></strong> USD
+                                        </li>
+        
+                                        <li class="list-group-item">
+                                            Payable:
+                                            <strong> <%=payable%></strong> USD
+                                        </li>
+                                    </ul>
+                                    <a href="/deposit-confirm/<%=payable%>" class="btn btn-primary btn-block w-100 font-weight-bold">Confirm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+        

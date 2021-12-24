@@ -1,0 +1,51 @@
+
+
+
+
+body, .modal-content-bg, .user-sidebar.style--xl, .form-control,.header-section.header-fixed {
+	background-color: #000000 !important;
+}
+
+.footer-section::before, .cmn-accordion.style--two .card-header .acc-btn::after,.base--bg,*::-webkit-scrollbar-button,*::-webkit-scrollbar-thumb,::selection   {
+    background-color: #CCA354 !important;
+}
+
+.footer-widget .social-links li a:hover , .social-links li a:hover , .testimonial-single i, .pricing-item__header .package__price , .btn-primary, .overview-item span, .feature-thumb.icon, 
+.feature--item.active .feature-content .title, .feature--item:hover .feature-content .title, .nav-tabs li a.color-one, .nav-tabs li a.color-one , .nav-tabs li a.color-two , .single-post__footer .share a:hover, .captcha span, .contact-item .icon ,.inner-hero-content .page__breadcums a,.privacy-links li a:hover, .base--color,.work-item .work-icon i,.work-item .work-content .sub-title {
+	color: #CCA354 !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+}
+.footer-bottom{
+    border-top: 1px solid #CCA35463;
+}
+.header-top {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #CCA35450;
+}
+.work-item .work-icon::before {
+    border: 2px dashed #CCA354;
+}
+@media (max-width: 1199px){
+
+    .navbar-toggler {
+        margin-right: 0px;
+    }
+    .header-section {
+        background-color: #000000;
+    }
+}
+
+.inner-hero-section{
+    border-bottom: 5px solid #CCA354;
+}
+
+.list-group-item {
+    border: 1px solid #CCA35420;
+}
+.hero-section {
+    border-bottom: 5px solid #CCA354;
+}

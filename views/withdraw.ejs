@@ -1,0 +1,104 @@
+<section class="inner-hero-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="inner-hero-content">
+                    <h2 class="inner-hero__title text-shadow">Withdraw Money</h2>
+                    <ul class="page__breadcums">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li>Withdraw Money</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="particles"></div>
+</section>
+
+    <section class="feature-section pt-150 pb-150">
+        <div class="container">
+            <div class="row justify-content-center mt-2">
+
+                <div class="col-md-12">
+                    <div class="text-right mb-5">
+                        <a href="/withdraw-history" class="btn btn-primary">Withdraw Log</a>
+                    </div>
+                </div>
+
+
+
+                
+                    <div class="col-lg-4 col-md-4 mb-4">
+                        <div class="card card-bg">
+                            <h5 class="card-header text-center">BITCOIN</h5>
+                            <div class="card-body card-body-deposit">
+                                <img src="/assets/images/withdraw/method/608e8f837fa6c1619955587.jpg"
+                                     class="card-img-top" alt="BITCOIN" style="width: 100%">
+
+                                <ul class="list-group text-center text-white withdraw-list">
+
+
+                                    <li class="list-group-item">Limit                                        : 1000
+                                        - 10000000000 USD</li>
+
+                                    <li class="list-group-item"> Charge                                        : 1 USD
+                                                                                    + 1%
+                                                                            </li>
+                                    <li class="list-group-item">Processing time - 2</li>
+                                </ul>
+
+                            </div>
+                            <div class="card-footer">
+                                <%-include("./partials/messages") %>
+                                <a href="javascript:void(0)"  data-id="1"
+                                   data-resource="{&quot;id&quot;:1,&quot;name&quot;:&quot;BITCOIN&quot;,&quot;image&quot;:&quot;608e8f837fa6c1619955587.jpg&quot;,&quot;min_limit&quot;:&quot;1000.00000000&quot;,&quot;max_limit&quot;:&quot;9999999999.99999999&quot;,&quot;delay&quot;:&quot;2&quot;,&quot;fixed_charge&quot;:&quot;1.00000000&quot;,&quot;rate&quot;:&quot;0.00001800&quot;,&quot;percent_charge&quot;:&quot;1.00&quot;,&quot;currency&quot;:&quot;btc&quot;,&quot;user_data&quot;:{&quot;wallet_address&quot;:{&quot;field_name&quot;:&quot;wallet_address&quot;,&quot;field_level&quot;:&quot;WALLET ADDRESS&quot;,&quot;type&quot;:&quot;text&quot;,&quot;validation&quot;:&quot;required&quot;}},&quot;description&quot;:&quot;&lt;br&gt;&quot;,&quot;status&quot;:&quot;1&quot;,&quot;created_at&quot;:&quot;2021-05-02T11:39:47.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-02T11:39:47.000000Z&quot;}"
+                                   data-min_amount="1000"
+                                   data-max_amount="10000000000"
+                                   data-fix_charge="1"
+                                   data-percent_charge="1"
+                                   data-base_symbol="USD"
+                                   class="btn btn-block  btn-primary w-100 withdraw" data-toggle="modal" data-target="#exampleModal">
+                                    Withdraw now</a>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-content-bg">
+                <div class="modal-header">
+                    <h5 class="modal-title method-name" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/withdraw" method="post" class="register">
+
+                        <div class="form-group">
+                            <input type="hidden" name="currency"  class="edit-currency form-control" value="">
+                            <input type="hidden" name="method_code" class="edit-method-code  form-control" value="">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Enter Amount:</label>
+                            <div class="input-group">
+                                <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required=""  value="">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text addon-bg currency-addon">USD</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger action-btn" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary  action-btn">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>

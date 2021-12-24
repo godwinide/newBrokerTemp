@@ -1,0 +1,91 @@
+<%-include("./partials/messages") %>
+
+        <section class="inner-hero-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="inner-hero-content">
+                            <h2 class="inner-hero__title text-shadow">Deposit Methods</h2>
+                            <ul class="page__breadcums">
+                                <li><a href="">home</a></li>
+                                <li>Deposit Methods</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="particles"></div>
+        </section>
+            <section class="feature-section pt-150 pb-150">
+        
+                <div class="container">
+                    <div class="row">
+        
+                        <div class="col-md-12">
+                            <div class="text-right mb-5">
+                                <a href="/history" class="btn btn-primary">Deposit History</a>
+                            </div>
+                        </div>
+        
+                                <div class="col-lg-3 col-md-3 mb-4">
+                                <div class="card card-bg">
+                                    <h5 class="card-header text-center">BITCOIN
+                                    </h5>
+                                    <div class="card-body card-body-deposit">
+                                        <img src="/assets/images/gateway/608ec7f20dd2e1619970034.jpg" class="card-img-top deposit-logo" alt="BITCOIN">
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="javascript:void(0)" data-id="1" data-resource="{&quot;id&quot;:1,&quot;name&quot;:&quot;BITCOIN&quot;,&quot;currency&quot;:&quot;btc&quot;,&quot;symbol&quot;:&quot;&quot;,&quot;method_code&quot;:&quot;1000&quot;,&quot;gateway_alias&quot;:&quot;bitcoin&quot;,&quot;min_amount&quot;:&quot;300.00000000&quot;,&quot;max_amount&quot;:&quot;1000000000.00000000&quot;,&quot;percent_charge&quot;:&quot;1.00&quot;,&quot;fixed_charge&quot;:&quot;1.00000000&quot;,&quot;rate&quot;:&quot;0.00001800&quot;,&quot;image&quot;:&quot;608ec7f20dd2e1619970034.jpg&quot;,&quot;gateway_parameter&quot;:&quot;{\&quot;proof_of_payment\&quot;:{\&quot;field_name\&quot;:\&quot;proof_of_payment\&quot;,\&quot;field_level\&quot;:\&quot;Proof of Payment\&quot;,\&quot;type\&quot;:\&quot;file\&quot;,\&quot;validation\&quot;:\&quot;required\&quot;}}&quot;,&quot;created_at&quot;:&quot;2021-05-02T15:40:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-07-05T20:04:07.000000Z&quot;,&quot;method&quot;:{&quot;id&quot;:31,&quot;code&quot;:&quot;1000&quot;,&quot;alias&quot;:&quot;bitcoin&quot;,&quot;image&quot;:&quot;608ec7f20dd2e1619970034.jpg&quot;,&quot;name&quot;:&quot;BITCOIN&quot;,&quot;status&quot;:true,&quot;parameters&quot;:&quot;[]&quot;,&quot;supported_currencies&quot;:&quot;[]&quot;,&quot;crypto&quot;:&quot;0&quot;,&quot;extra&quot;:null,&quot;description&quot;:&quot;Kindly Your Deposit address bc1qgtfzd78wnnhtvhd3pjp6vrf6k5dtan5y2nzjcj&quot;,&quot;input_form&quot;:{&quot;proof_of_payment&quot;:{&quot;field_name&quot;:&quot;proof_of_payment&quot;,&quot;field_level&quot;:&quot;Proof of Payment&quot;,&quot;type&quot;:&quot;file&quot;,&quot;validation&quot;:&quot;required&quot;}},&quot;created_at&quot;:&quot;2021-05-02T15:40:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-07-05T20:04:07.000000Z&quot;}}"
+                                           data-min_amount="300"
+                                           data-max_amount="1000000000"
+                                           data-base_symbol=""
+                                           data-fix_charge="1"
+                                           data-percent_charge="1"
+                                           class=" btn  btn-primary w-100  deposit" data-toggle="modal"
+                                           data-target="#exampleModal">
+                                            Deposit Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                                    </div>
+                </div>
+            </section>
+        
+        
+        
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content modal-content-bg">
+                        <div class="modal-header">
+                            <strong class="modal-title method-name text-white" id="exampleModalLabel"></strong>
+                            <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </a>
+                        </div>
+                        <form action="/deposit" method="post" class="register">
+                            <div class="modal-body">
+                                    <input type="hidden" name="currency" class="edit-currency" value="">
+                                    <input type="hidden" name="method_code" class="edit-method-code" value="">
+                                                                <p class="text-danger depositLimit"></p>
+                                    <p class="text-danger depositCharge"></p>
+                                    <div class="form-group">
+                                        <label>Enter Amount:</label>
+                                        <div class="input-group">
+                                            <input id="amount" type="text" class="form-control form-control-lg" name="amount" placeholder="0.00" required autocomplete="off">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text currency-addon addon-bg">USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger action-btn" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary action-btn">Next</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+        
+        
