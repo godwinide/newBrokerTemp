@@ -7,6 +7,7 @@ router.get("/login", (req,res) => {
     try{
         return res.render("login", {pageTitle: "Login", req});
     }catch(err){
+        console.log(err);
         return res.redirect("/");
     }
 });
