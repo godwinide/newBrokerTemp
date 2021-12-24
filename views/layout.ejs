@@ -178,6 +178,61 @@
 </main>
 
 
+<div class="mgm" style="display: none;">
+    <div class="txt" style="color:black;">
+        Someone from <b>Australia</b> just Won 
+        <strong href="javascript:void(0);" onclick="javascript:void(0);">
+            $1000 
+        </strong>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var listCountries = ['London', 'Carlifornia', 'Germany', 'France', 'Italy', 'USA', 'Australia', 'Lesotho', 'Canada', 'Argentina', 'Saudi Arabia', 'Mexico', 'Kenya', 'Maldives', 'Venezuela', 'Soweto', 'Sweden', 'India', 'South Africa', 'Italy', 'Pakistan', 'United Kingdom', 'South Africa', 'Greece', 'Cuba', 'South Africa', 'Delhi', 'Austria', 'South Africa', 'Panama', 'USA', 'South Africa', 'Netherlands', 'Switzerland', 'Belgium', 'Israel', 'Cyprus'];
+    var listPlans = ['$2008','$5002','$1000','$2015','$8123','$3020','$402', '$600', '$700', '$2500'];
+    interval = Math.floor(Math.random() * (30000 - 8000 + 1) + 8000);
+    var run = setInterval(request, interval);
+
+    function request() {
+        clearInterval(run);
+        interval = Math.floor(Math.random() * (30000 - 8000 + 1) + 8000);
+        var country = listCountries[Math.floor(Math.random() * listCountries.length)];
+        var plan = listPlans[Math.floor(Math.random() * listPlans.length)];
+        var msg = 'Someone from <b>' + country + '</b> just Won <strong href="javascript:void(0);" onclick="javascript:void(0);">' + plan + ' </strong>';
+        $(".mgm .txt").html(msg);
+        $(".mgm").stop(true).fadeIn(2);
+        window.setTimeout(function() {
+            $(".mgm").stop(true).fadeOut(100);
+        }, 8000);
+        run = setInterval(request, interval);
+    }
+</script>
+
+<style>
+    .mgm {
+        border-radius: 7px;
+        position: fixed;
+        z-index: 90;
+        bottom: 5px;
+        left: 10px;
+        background: #fff;
+        padding: 10px 27px;
+        box-shadow: 0px 5px 13px 0px rgba(0,0,0,.3);
+    }
+    .mgm a {
+        font-weight: 700;
+        display: block;
+        color:#f2d516;
+    }
+    .mgm a, .mgm a:active {
+        transition: all .2s ease;
+        color:#f2d516;
+    }
+</style>
+
+<script src="//code.tidio.co/wxhvc2q4jdqefszb0winaa35qrhquybx.js" async></script>
+
+
 <script src="assets/templates/neo_dark/js/vendor/jquery-3.3.1.min.js"></script>
 <script src="assets/templates/neo_dark/js/vendor/bootstrap.min.js"></script>
 
