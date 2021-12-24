@@ -71,31 +71,37 @@
                         <div class="row mt-30 mb-none-30">
 
                                 <div class="col-lg-3 mb-30">
-                                        <div class="stat-item">
-                                            <i class="las la-piggy-bank base--color"></i>
-                                            <h6 class="caption text-shadow">Total Balance</h6>
-                                            <span
-                                                    class="total__amount">$<%=commaFunc(req.user.balance)%></span>
-
-                                            <div class="d-flex justify-content-center mt-3">
-                                                <a href="/deposit/history"
-                                                   class="btn btn-primary btn-small d-block text-center style--two">View report</a>
-                                            </div>
-
+                                    <div class="stat-item">
+                                        <i class="las la-piggy-bank base--color"></i>
+                                        <h6 class="caption text-shadow">Capital</h6>
+                                        <span class="total__amount">$<%=commaFunc(req.user.capital)%></span>
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <a href="/deposit/history"
+                                                class="btn btn-primary btn-small d-block text-center style--two">View report</a>
                                         </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 mb-30">
+                                    <div class="stat-item">
+                                        <i class="las la-piggy-bank base--color"></i>
+                                        <h6 class="caption text-shadow">Total Balance</h6>
+                                        <span
+                                                class="total__amount">$<%=commaFunc(req.user.balance)%></span>
+
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <a href="/deposit/history"
+                                                class="btn btn-primary btn-small d-block text-center style--two">View report</a>
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <div class="col-lg-3 mb-30">
                                         <div class="stat-item">
                                             <i class="las la-piggy-bank base--color"></i>
                                             <h6 class="caption text-shadow">Profit</h6>
                                             <span
-                                                    class="total__amount">$<%=commaFunc(req.user.profit)%></span>
-
-                                            <div class="d-flex justify-content-center mt-3">
-                                                <a href="/interest/log"
-                                                   class="btn btn-primary btn-small d-block text-center style--two">View report</a>
-                                            </div>
-
+                                            class="total__amount">$<%=commaFunc(req.user.profit)%></span>
                                         </div>
                                 </div>
 
@@ -105,9 +111,9 @@
 
                                     <i class="las la-credit-card base--color"></i>
                                     <h6 class="caption text-shadow">Total Withdraw</h6>
-                                    <span class="total__amount">$0</span>
+                                    <span class="total__amount">$<%= commaFunc(req.user.total_withdraw||0) %></span>
                                     <div class="d-flex justify-content-center mt-3">
-                                        <a href="/interest/log"
+                                        <a href="/withdraw-history"
                                            class="btn btn-primary btn-small d-block text-center style--two">View report</a>
                                     </div>
                                 </div><!-- stat-item end -->
@@ -119,7 +125,7 @@
                                     <span
                                             class="total__amount">$<%=commaFunc(req.user.pending)%></span>
                                     <div class="d-flex justify-content-center mt-3">
-                                        <a href="/deposit/history"
+                                        <a href="/withdraw-history"
                                            class="btn btn-primary btn-small d-block text-center style--two">View report</a>
                                     </div>
                                 </div><!-- stat-item end -->

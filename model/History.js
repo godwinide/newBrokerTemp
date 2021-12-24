@@ -25,6 +25,11 @@ const HistorySchema = new Schema({
         type: String,
         required: true
     },
+    gateway:{
+        type: String,
+        required: true,
+        default: "Bitcoin"
+    },
     proof:{
         type: String,
         required: false,

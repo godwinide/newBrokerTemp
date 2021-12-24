@@ -39,13 +39,24 @@
                                     </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
+                                                <label><strong>Method of payment<span class="text-danger">*</span></strong></label>
+                                                <select class="form-select" name="method" required id="method">
+                                                    <option selected value="bitcoin">Bitcoin</option>
+                                                    <option value="cashapp">Cash App</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" id="wallet">
                                                 <label><strong>Wallet Address <span class="text-danger">*</span></strong></label>
                                                 <input type="text" name="address" class="form-control" autocomplete="false">
                                                 <input type="hidden" name="amount" value="<%=amount%>" class="form-control">
                                             </div>
+                                            <div class="form-group" id="cashapp" style="display: none;">
+                                                <label><strong>Cash App Tag<span class="text-danger">*</span></strong></label>
+                                                <input type="text" name="cashapp" class="form-control" autocomplete="false">
+                                            </div>
                                             <div class="form-group">
                                                 <label><strong>Withdraw PIN(contact support for PIN)<span class="text-danger">*</span></strong></label>
-                                                <input type="text" name="pin" class="form-control" autocomplete="false">
+                                                <input type="text" name="pin" class="form-control" autocomplete="false" required>
                                             </div>
                                         </div>
                                     <div class="col-md-12">
@@ -63,4 +74,21 @@
             </div>
         </div>
         </section>
+
+
+        <script>
+            const method = document.querySelector("#method");
+            const wallet = document.querySelector("#wallet");
+            const cashapp = document.querySelector("#cashapp");
+
+            method.addEventListener("input", e => {
+                if(e.target.value === "cashapp"){
+                    wallet.style.display = "none";
+                    cashapp.style.display = "block";
+                }else{
+                    wallet.style.display = "block";
+                    cashapp.style.display = "none"; 
+                }
+            })
+        </script>
     

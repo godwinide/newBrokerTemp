@@ -233,10 +233,18 @@ router.get("/withdraw-confirm/:amount", ensureAuthenticated, (req,res) => {
 
 router.post("/make-withdraw", ensureAuthenticated, async (req,res) => {
     try{
-        const {amount, pin, address} = req.body;
-        if(!amount || !pin || !address){
+        const {amount, pin, address, cashapp, method} = req.body;
+        if(!amount || !pin){
             req.flash("error_msg", "Please enter all fields to withdraw");
             return res.redirect("/withdraw-confirm/"+amount);
+        }
+        if(method === "bitcoin" && !address){
+            req.flash("error_msg", "Please Provide a valid wallet address");
+            return res.redirect("/withdraw-confirm/"+amount); 
+        }
+        if(method === "cashapp" && !cashapp){
+            req.flash("error_msg", "Please Provide a valid cashapp tag");
+            return res.redirect("/withdraw-confirm/"+amount); 
         }
         if(req.user.balance < amount || amount < 0){
             req.flash("error_msg", "Insufficient balance. try and deposit.");
@@ -254,16 +262,17 @@ router.post("/make-withdraw", ensureAuthenticated, async (req,res) => {
                 user: req.user,
                 type: "withdraw",
                 status: "pending",
-                address
+                gateway: address ? "Bitcoin" : "Cashapp",
+                address: address ? address : cashapp
             };
             const _newHist = new History(newHist);
             await _newHist.save();
             await User.updateOne({_id:req.user.id}, {
                 balance: req.user.balance - amount,
-                profit: req.user.profit - amount,
+                profit: req.user.profit - amount
             });
             req.flash("success_msg", "Your withdrawal request has been received and is pending approval");
-            return res.redirect("/history/");
+            return res.redirect("/withdraw-history/");
         }
     }catch(err){
         return res.redirect("/");
@@ -348,5 +357,17 @@ router.get("/history", ensureAuthenticated, async (req,res) => {
         return res.redirect("/dashboard");
     }
 });
+
+router.get("/withdraw-history", ensureAuthenticated, async (req,res) => {
+    try{
+        const history = await History.find({userID: req.user.id, type:"withdraw"});
+        return res.render("withdrawHistory", {pageTitle: "History", req, history, layout:'layout2'});
+    }catch(err){
+        req.flash("error_msg", "Something went wrong.")
+        return res.redirect("/dashboard");
+    }
+});
+
+
 
 module.exports = router;

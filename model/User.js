@@ -38,7 +38,12 @@ const UserSchema = new Schema({
         type: Number,
         required: false,
         default: 0
-    },  
+    }, 
+    total_withdraw: {
+        type: Number,
+        required: false,
+        default: 0
+    },
     balance:{
         type: Number,
         required: false,

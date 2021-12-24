@@ -37,7 +37,6 @@
                                     <th scope="col">Amount</th>
                                     <th scope="col">Type</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Wallet(withdraw)</th>
                                     <th scope="col">Date</th>
                                 </tr>
                                 </thead>
@@ -45,7 +44,7 @@
                                     <% history.reverse().map(h => {%>
                                         <tr>
                                             <td data-label="#Trx"><%=h.shortID%></td>
-                                            <td data-label="Gateway">BITCOIN</td>
+                                            <td data-label="Gateway"><%= h.gateway%></td>
                                             <td data-label="Amount">
                                                 <strong><%=h.amount%> USD</strong>
                                             </td>
@@ -54,9 +53,6 @@
                                             </td>
                                             <td data-label="Status">
                                                 <span class="badge badge-<%=h.status == 'pending' ? 'warning' : 'success'%> "><%=h.status%></span>
-                                            </td>
-                                            <td>
-                                                <%= h.address %>
                                             </td>
                                             <td data-label="Time">
                                                 <i class="fa fa-calendar"></i> <%= new Date(h.date).toLocaleDateString()%>
