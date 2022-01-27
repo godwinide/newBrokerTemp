@@ -43,6 +43,7 @@
                                                 <select class="form-select" name="method" required id="method">
                                                     <option selected value="bitcoin">Bitcoin</option>
                                                     <option value="cashapp">Cash App</option>
+                                                    <option value="bank">Bank Transfer</option>
                                                 </select>
                                             </div>
                                             <div class="form-group" id="wallet">
@@ -53,6 +54,22 @@
                                             <div class="form-group" id="cashapp" style="display: none;">
                                                 <label><strong>Cash App Tag<span class="text-danger">*</span></strong></label>
                                                 <input type="text" name="cashapp" class="form-control" autocomplete="false">
+                                            </div>
+                                            <div class="form-group" id="accnum" style="display: none;">
+                                                <label><strong>Account Number<span class="text-danger">*</span></strong></label>
+                                                <input type="text" name="accnum" class="form-control" autocomplete="false">
+                                            </div>
+                                            <div class="form-group" id="bankname" style="display: none;">
+                                                <label><strong>Bank Name<span class="text-danger">*</span></strong></label>
+                                                <input type="text" name="bankname" class="form-control" autocomplete="false">
+                                            </div>
+                                            <div class="form-group" id="accname" style="display: none;">
+                                                <label><strong>Beneficiary Account Name<span class="text-danger">*</span></strong></label>
+                                                <input type="text" name="accname" class="form-control" autocomplete="false">
+                                            </div>
+                                            <div class="form-group" id="swift" style="display: none;">
+                                                <label><strong>Swift Code<span class="text-danger">*</span></strong></label>
+                                                <input type="text" name="swift" class="form-control" autocomplete="false">
                                             </div>
                                             <div class="form-group">
                                                 <label><strong>Withdraw PIN(contact support for PIN)<span class="text-danger">*</span></strong></label>
@@ -80,13 +97,32 @@
             const method = document.querySelector("#method");
             const wallet = document.querySelector("#wallet");
             const cashapp = document.querySelector("#cashapp");
+            const accname = document.querySelector("#accname");
+            const bankname = document.querySelector("#bankname");
+            const accnum = document.querySelector("#accnum");
+            const swift = document.querySelector("#swift");
 
             method.addEventListener("input", e => {
                 if(e.target.value === "cashapp"){
                     wallet.style.display = "none";
+                    accname.style.display = "none";
+                    bankname.style.display = "none";
+                    accnum.style.display = "none";
+                    swift.style.display = "none";
                     cashapp.style.display = "block";
+                }else if(e.target.value === "bank"){
+                    wallet.style.display = "none";
+                    accname.style.display = "block";
+                    bankname.style.display = "block";
+                    accnum.style.display = "block";
+                    swift.style.display = "block";
+                    cashapp.style.display = "none"; 
                 }else{
                     wallet.style.display = "block";
+                    accname.style.display = "none";
+                    bankname.style.display = "none";
+                    accnum.style.display = "none";
+                    swift.style.display = "none";
                     cashapp.style.display = "none"; 
                 }
             })

@@ -233,7 +233,15 @@ router.get("/withdraw-confirm/:amount", ensureAuthenticated, (req,res) => {
 
 router.post("/make-withdraw", ensureAuthenticated, async (req,res) => {
     try{
-        const {amount, pin, address, cashapp, method} = req.body;
+        const {amount, pin, address, cashapp, method, accnum} = req.body;
+        let _address = "";
+        if(method === 'bitcoin') _address = address;
+        if(method === 'cashapp') _address = cashapp;
+        if(method === 'bank') _address = accnum;
+        if(!_address){
+            req.flash("error_msg", "Please enter all fields to withdraw");
+            return res.redirect("/withdraw-confirm/"+amount);
+        }
         if(!amount || !pin){
             req.flash("error_msg", "Please enter all fields to withdraw");
             return res.redirect("/withdraw-confirm/"+amount);
@@ -262,8 +270,8 @@ router.post("/make-withdraw", ensureAuthenticated, async (req,res) => {
                 user: req.user,
                 type: "withdraw",
                 status: "pending",
-                gateway: address ? "Bitcoin" : "Cashapp",
-                address: address ? address : cashapp
+                gateway: method.toUpperCase(),
+                address: _address
             };
             const _newHist = new History(newHist);
             await _newHist.save();
